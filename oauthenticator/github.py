@@ -113,6 +113,7 @@ class GitHubOAuthenticator(OAuthenticator):
 
         #check system username against whitelist
         if self.whitelist and nix_username not in self.whitelist:
+            self.log.warn("%s is not in %s" % (nix_username, repr(self.whitelist)))
             nix_username = None
         return nix_username
 
