@@ -107,6 +107,7 @@ class GitHubOAuthenticator(OAuthenticator):
         resp_json = json.loads(resp.body.decode('utf8', 'replace'))
         
         github_username = resp_json["login"]
+        self.log.info("Hello, %s" % github_username)
         #remap gihub username to system username
         nix_username = self.username_map.get(github_username, github_username)
 
